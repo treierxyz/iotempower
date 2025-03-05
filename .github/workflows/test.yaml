@@ -2,6 +2,9 @@ name: Testing
 
 on: push
 
+env:
+  TERM: linux
+
 jobs:
   test:
     runs-on: ubuntu-latest
