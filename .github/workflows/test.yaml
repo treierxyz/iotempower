@@ -15,4 +15,4 @@ jobs:
           bash run x bin/iot_install --default
       - name: Run tests
         run: |
-          iot x pytest -s -v test_compilation.py --boards=wemos_d1_mini,esp32 --devices=laser_distance
+          iot x pytest -s -v tests/test_compilation.py --boards=wemos_d1_mini,esp32 --devices=laser_distance
