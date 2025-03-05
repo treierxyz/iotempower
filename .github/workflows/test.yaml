@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Install iotempower
         run: |
-          bash run x bin/iot_install
+          bash run x bin/iot_install --default
       - name: Run tests
         run: |
           pytest -s -v --boards=wemos_d1_mini,esp32 --devices=laser_distance test_compilation.py
