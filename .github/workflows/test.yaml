@@ -9,7 +9,6 @@ jobs:
       - uses: actions/checkout@v4
       - name: Install iotempower
         run: |
-          cd iot
           bash run x bin/iot_install
       - name: Run tests
         run: |
