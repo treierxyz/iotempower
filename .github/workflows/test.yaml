@@ -1,0 +1,16 @@
+name: Testing
+
+on: push
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install iotempower
+        run: |
+          cd iot
+          bash run x bin/iot_install
+      - name: Run tests
+        run: |
+          pytest -s -v --boards=wemos_d1_mini,esp32 --devices=laser_distance test_compilation.py
