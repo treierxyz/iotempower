@@ -11,8 +11,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Install iotempower
-        run: |
-          bash run x bin/iot_install --default
-      - name: Run tests
-        run: |
-          iot x pytest -s -v tests/test_compilation.py --boards=wemos_d1_mini,esp32 --devices=laser_distance
+        run: bash run x bin/iot_install --default
+      - name: Test installation
+        run: iot x pytest -s -v tests/test_installations.py
+      - name: Test compilation
+        run: iot x pytest -s -v tests/test_compile.py
