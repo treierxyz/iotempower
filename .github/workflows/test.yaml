@@ -15,4 +15,4 @@ jobs:
       - name: Test installation
         run: iot x pytest -s -v tests/test_installations.py
       - name: Test compilation
-        run: iot x pytest -s -v tests/test_compile.py
+        run: iot x pytest -s -v tests/test_compilation.py

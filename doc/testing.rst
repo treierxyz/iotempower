@@ -45,7 +45,7 @@ File Descriptions
     - **Input**: `installation.json`, generated during installation.
     - **Note**: Not necessary if using Docker or Raspberry Pi images.
 
-3. **test_compile.py**: Tests the compilation process. The compilation is a process where the framework takes node configurations and generates binary files to upload to the actual device. This process can be done in a fully isolated manner. In `data.py`, there is an example where:
+3. **test_compilation.py**: Tests the compilation process. The compilation is a process where the framework takes node configurations and generates binary files to upload to the actual device. This process can be done in a fully isolated manner. In `data.py`, there is an example where:
    - `boards` variable lists all devices.
    - `devices` variable lists sensor names and syntaxes that can be compiled with all boards.
    - `isolated_combinations_to_test` variable contains combinations of sensors and boards that can only run on specific boards.
