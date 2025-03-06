@@ -8,6 +8,47 @@ env:
 jobs:
   test:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        board:
+          [
+            "esp8266",
+            "esp32",
+            "wemos_d1_mini",
+            "esp32minikit",
+            "m5stickc",
+            "m5stickc_plus",
+            "wroom_02",
+            "nodemcu",
+            "sonoff",
+            "olimex",
+            "esp-m",
+            "sonoff_pow",
+          ]
+        device:
+          [
+            "input",
+            "output",
+            "analog",
+            "bmp180",
+            "bmp280",
+            "dallas",
+            "gyro6050",
+            "gyro9250",
+            "gesture_apds9960",
+            "sgp30",
+            "edge_counter",
+            "dht",
+            "ds18b20",
+            "servo",
+            "acoustic_distance",
+            "laser_distance",
+            "weight_sensor",
+            "light_sensor_1",
+            "light_sensor_2",
+            "capacity_touch",
+          ]
+    name: ${{ matrix.board }} with ${{ matrix.device }}
     steps:
       - uses: actions/checkout@v4
       - name: Install iotempower
@@ -15,4 +56,4 @@ jobs:
       - name: Test installation
         run: iot x pytest -s -v tests/test_installations.py
       - name: Test compilation
-        run: iot x pytest -s -v tests/test_compilation.py
+        run: iot x pytest -s -v tests/test_compilation.py --boards ${{ matrix.board }} --devices ${{ matrix.device }}
