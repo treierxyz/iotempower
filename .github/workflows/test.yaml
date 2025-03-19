@@ -59,6 +59,6 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
       - name: Test installation
-        run: docker run -it --entrypoint "/bin/bash" --rm -v "$GITHUB_WORKSPACE:/iot/data/repo" iotempower:latest -c "iot x pytest -s -v iot/tests/test_installations.py"
+        run: docker run --entrypoint "/bin/bash" --rm -v "$GITHUB_WORKSPACE:/iot/data/repo" iotempower:latest -c "iot x pytest -s -v iot/tests/test_installations.py"
       # - name: Test compilation
       #   run: docker run --rm iotempower:latest iot x pytest -s -v tests/test_compilation.py --boards ${{ matrix.board }} --devices ${{ matrix.device }}
