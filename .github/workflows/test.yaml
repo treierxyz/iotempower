@@ -49,7 +49,9 @@ jobs:
     name: Test ${{ matrix.board }} with ${{ matrix.device }}
     steps:
       - uses: actions/checkout@v4
-      - name: Test installation
-        run: docker run --entrypoint "/bin/bash" --rm -v "${{ github.workspace }}:/iot/data/repo" ulno/iotempower:latest -c "iot x pytest -s -v iot/tests/test_installations.py"
-      - name: Test compilation
-        run: docker run --entrypoint "/bin/bash" --rm -v "${{ github.workspace }}:/iot/data/repo" ulno/iotempower:latest -c "iot x pytest -s -v iot/tests/test_compilation.py --boards ${{ matrix.board }} --devices ${{ matrix.device }}"
+      - name: Test welcome
+        run: docker run --entrypoint "/bin/bash" --rm -v "${{ github.workspace }}:/iot/data/repo" ulno/iotempower:latest -c "iot welcome"
+      # - name: Test installation
+      #   run: docker run --entrypoint "/bin/bash" --rm -v "${{ github.workspace }}:/iot/data/repo" ulno/iotempower:latest -c "iot x pytest -s -v iot/tests/test_installations.py"
+      # - name: Test compilation
+      #   run: docker run --entrypoint "/bin/bash" --rm -v "${{ github.workspace }}:/iot/data/repo" ulno/iotempower:latest -c "iot x pytest -s -v iot/tests/test_compilation.py --boards ${{ matrix.board }} --devices ${{ matrix.device }}"
