@@ -50,7 +50,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Install iotempower
-        run: docker run --entrypoint "/bin/bash" --rm -v "${{ github.workspace }}:/iot/data/repo" ulno/iotempower:latest -c "iot install"
+        run: docker run --entrypoint "/bin/bash" --rm -v "${{ github.workspace }}:/iot/data/repo" ulno/iotempower:latest -c "iot; iot install --default"
       - name: Test installation
         run: docker run --entrypoint "/bin/bash" --rm -v "${{ github.workspace }}:/iot/data/repo" ulno/iotempower:latest -c "iot x pytest -s -v iot/tests/test_installations.py"
       - name: Test compilation
